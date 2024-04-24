@@ -86,21 +86,88 @@
 
 
 
-$num = 43;
-$func = function() use($num) {
-    echo $num;
-};
+//$num = 43;
+//$func = function() use($num) {
+//    echo $num;
+//};
+
+
+
+//function make(int $initVal): callable
+//{
+//    $val = $initVal;
+//
+//    $func = function() use(&$val) {
+//        return ++$val;
+//    };
+//
+//    return $func;
+//}
+//
+//$func = make(10);
+//var_dump($func());
+//var_dump($func());
+//var_dump($func());
+//
+//$func2 = make(100);
+//var_dump($func2());
+//var_dump($func2());
+//var_dump($func2());
+
+
+
+
+//function powerMaker(int $power)
+//{
+//    return function(int $base) use (&$power)
+//    {
+//        return $base ** $power;
+//    };
+//}
+//
+//$calc = powerMaker(3);
+//var_dump($calc(12));
+//var_dump($calc(9));
+//var_dump($calc(2));
+//
+//var_dump(powerMaker(3)(15));
+
+
+
+
+//function sum(array $arr, callable $predicate): int
+//{
+//    $sum = 0;
+//
+//    foreach($arr as $item)
+//        if ($predicate($item))
+//            $sum += $item;
+//
+//    return $sum;
+//}
+//
+//$arr = [4, 6, 8, 1, 2, 2, 3, 9];
+//
+//$factor = 2;
+//$result = sum($arr, fn($n) => $n % $factor === 0);
+//
+//var_dump($result);
 
 
 
 
 
+function make(int $initVal): callable
+{
+    $val = $initVal;
 
+    return fn() => ++$val;
+}
 
-
-
-
-
+$f = make(10);
+var_dump($f());
+var_dump($f());
+var_dump($f());
 
 
 
