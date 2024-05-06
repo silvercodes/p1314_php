@@ -9,19 +9,16 @@
         </div>
 
         <div class="row">
-            <h1 class="display-6">Login</h1>
+            <h1 class="display-6">Upload</h1>
         </div>
 
         <div class="row mt-4 justify-content-center">
             <div class="col-sm-12 col-md-8 col-lg-4">
-                <form action="handler.php" method="post">
+                <form action="handler.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 
-                        <label for="pass" class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control" id="pass">
+
+                        <input name="usr_img[]" type="file" accept="image/*" class="form-control" id="img_file" multiple>
 
                         <button class="btn btn-outline-primary mt-4" type="submit">Save</button>
                     </div>
@@ -33,3 +30,6 @@
 <?php require_once '../components/scripts.php'; ?>
 </body>
 </html>
+
+
+

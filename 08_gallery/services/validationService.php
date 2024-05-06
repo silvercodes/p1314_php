@@ -11,3 +11,12 @@ function registrationValidation(array $data): array {
 
     return $errors;
 }
+
+function loginValidation(array $data): array {
+    $errors = [];
+
+    if (! $data['email'] || ! $data['password'])
+        $errors[] = 'All fields are required';
+
+    return $errors;
+}
