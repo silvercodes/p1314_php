@@ -16,7 +16,8 @@
             <div class="col-sm-12 col-md-8 col-lg-4">
                 <form action="handler.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-
+                                                                        <!--10 Mb-->
+                        <input type="hidden" name="MAX_FILE_SIZE" value="10485760"/>
 
                         <input name="usr_img[]" type="file" accept="image/*" class="form-control" id="img_file" multiple>
 

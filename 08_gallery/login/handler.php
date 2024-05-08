@@ -26,6 +26,7 @@ else {
 
     $_SESSION['login'] = true;
     $_SESSION['user'] = $user;
+    $_SESSION['dir'] = md5($user['email']);
 
     header('Location: /gallery');
 }

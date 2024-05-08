@@ -29,3 +29,7 @@ function signin(string $email, string $password): ?array {
 
     return $user['password'] === md5($password) ? $user : null;
 }
+
+function logout() {
+    session_destroy();
+}

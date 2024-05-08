@@ -19,7 +19,7 @@
                   <a class="nav-link active" aria-current="page" href="/gallery">Gallery</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Logout</a>
+                  <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
                 </li>
             </ul>
         </div>

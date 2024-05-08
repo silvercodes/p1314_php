@@ -22,4 +22,11 @@ if (! signup($data['email'], $data['password']))
     exit(0);
 }
 
+$path = STORAGE . '/' . md5($data['email']);
+
+if (! file_exists($path)) {
+        // TODO: change permission from 0777!!!
+    mkdir($path, 0777, true);
+}
+
 header('Location: /login');
