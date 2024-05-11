@@ -1,3 +1,10 @@
+<?php
+require_once '../services/authService.php';
+
+if (session_status() !== PHP_SESSION_ACTIVE)
+    session_start();
+?>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Gallery</a>
@@ -12,15 +19,17 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/login">Login</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/upload">Upload</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/gallery">Gallery</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
-                </li>
+                <?php if (checkAuth()): ?>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/upload">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

@@ -19,7 +19,8 @@
                     require_once '../tools/dd.php';
                     require_once '../config.php';
 
-                    session_start();
+                    if (session_status() !== PHP_SESSION_ACTIVE)
+                        session_start();
 
                     $albumDir = $_SESSION['dir'];
                     $path = STORAGE . '/' . $albumDir;

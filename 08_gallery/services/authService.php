@@ -33,3 +33,7 @@ function signin(string $email, string $password): ?array {
 function logout() {
     session_destroy();
 }
+
+function checkAuth(): bool {
+    return isset($_SESSION['login']) && $_SESSION['login'];
+}
