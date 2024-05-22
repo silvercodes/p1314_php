@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 require_once '../tools/dd.php';
 
 //class User
@@ -160,27 +162,218 @@ require_once '../tools/dd.php';
 
 // ==== abstract class
 
-abstract class AbstractUnit
-{
-    public int $hp;
-    public function __construct(int $hp) {
-        $this->hp = $hp;
-    }
-    public abstract function render();
-    public function attack() {
-        dump('attack');
-    }
-}
+//abstract class AbstractUnit
+//{
+//    public int $hp;
+//    public function __construct(int $hp) {
+//        $this->hp = $hp;
+//    }
+//    public abstract function render();
+//    public function attack() {
+//        dump('attack');
+//    }
+//}
+//
+//class Warrior extends AbstractUnit
+//{
+//    public function render()
+//    {
+//        // TODO: Implement render() method.
+//    }
+//}
+//
+//$u = new Warrior(120);
 
-class Warrior extends AbstractUnit
-{
-    public function render()
-    {
-        // TODO: Implement render() method.
-    }
-}
 
-$u = new Warrior(120);
+
+// ==== traits
+//trait Render
+//{
+//    public function render(): void {
+//        dump("render from trait $this->title");
+//    }
+//}
+//
+//class Unit
+//{
+//    public function __construct(
+//        public string $title
+//    ) {}
+//    public function render(): void {
+//        dump("render from Unit $this->title");
+//    }
+//}
+//
+//class Archer extends Unit
+//{
+//    use Render;
+//}
+//
+//$u = new Archer('Vasia');
+//$u->render();
+
+
+
+
+// ==== static
+
+//class User
+//{
+//    public int $id;
+//    private static int $maxId = 120;
+//    public function __construct() {
+//        $this->id = ++self::$maxId;
+//    }
+//    public function render() {
+//        dump($this->id);
+//    }
+//    public static function test() {
+//        dump("maxId: " . self::$maxId);
+//    }
+//}
+//
+//$a = new User();
+//$b = new User();
+//$c = new User();
+//User::test();
+
+
+
+// ==== readonly
+
+//class User
+//{
+//    private const PI = 3.14;
+//    public readonly string $role;
+//
+//    public function test(): void {
+//
+//    }
+//    public function init(string $role) {
+//        $this->role = $role;
+//    }
+//}
+//
+//readonly class Container
+//{
+//
+//}
+
+
+
+// ==== Magic methods
+// 1. __construct()
+
+// 2. __destruct()
+
+// 3,4. __set() / __get()
+//class Box
+//{
+//    public array $data = [];
+//
+//    public function __set($name, $value) {
+//        $this->data[$name] = $value;
+//    }
+//    public function __get($name): mixed {
+//        if (isset($this->data[$name]))
+//            return $this->data[$name];
+//
+//        return null;
+//    }
+//
+//}
+//
+//$a = new Box();
+//$a->email = 'vasia@mail.com';
+//// dd($a);
+//dd($a->email);
+
+// 5. __toString()
+//class User
+//{
+//    public function __construct(
+//        public string $name,
+//        public int $age
+//    ) {}
+//
+//    public function __toString() {
+//        return "<h1>Name: $this->name</h1>";
+//    }
+//}
+//
+//$u = new User("Vasia", 23);
+//echo $u;
+
+
+// 6. __call() / __callStatic
+//class User
+//{
+//    public function __call(string $methodName, array $args) {
+//        dump($methodName, $args);
+//    }
+//    public static function __callStatic(string $methodName, array $args) {
+//        dump($methodName, $args);
+//    }
+//}
+//
+//$a = new User();
+//$a->process(123, 'Vasia', [3, 4, 5, 6]);
+//User::staticProcess(45);
+
+
+// 7. __isset() / __unset
+//class Box
+//{
+//    private array $data = [
+//        'role' => 'admin',
+//    ];
+//
+//    public function __isset($name): bool {
+//        return isset($data['role']);
+//    }
+//}
+
+
+// 8. Extra: __sleep() / __wakeup()         __serialize() / __unserialize()
+//class User
+//{
+//
+//    public function __construct(
+//        public string $email,
+//        public string $pass,
+//        public int $age,
+//    ) {}
+//
+////    public function __sleep(): array {
+////        return ['email', 'age'];
+////    }
+//    public function __serialize(): array {
+//        return [
+//            'user_email' => strtoupper($this->email),
+//            'user_age' => $this->age
+//        ];
+//    }
+//}
+//
+//$user = new User('vasia@mail.com', '123123123', 34);
+//$data = serialize($user);
+//dd($data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
